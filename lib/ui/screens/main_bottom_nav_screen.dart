@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:task_manager/ui/screens/cancelled_task_screen.dart';
+import 'package:task_manager/ui/screens/completed_task_screen.dart';
+import 'package:task_manager/ui/screens/in_progress_task_screen.dart';
+import 'package:task_manager/ui/screens/new_task_screen.dart';
 import 'package:task_manager/ui/utility/app_colors.dart';
 
 class MainBottomNavScreen extends StatefulWidget {
@@ -11,10 +15,17 @@ class MainBottomNavScreen extends StatefulWidget {
 class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
 
   int _selectedIndex = 0;
+  final List<Widget> _screens = const[
+    NewTaskScreen(),
+    CompletedTaskScreen(),
+    InProgressTaskScreen(),
+    CancelledTaskScreen()
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: _screens[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: (index) {
