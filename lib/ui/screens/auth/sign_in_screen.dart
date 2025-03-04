@@ -4,6 +4,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:task_manager/ui/screens/auth/email_verification_screen.dart';
 import 'package:task_manager/ui/screens/auth/sign_up_screen.dart';
+import 'package:task_manager/ui/screens/main_bottom_nav_screen.dart';
 import 'package:task_manager/ui/utility/app_colors.dart';
 import 'package:task_manager/ui/widgets/background_widget.dart';
 
@@ -55,7 +56,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   height: 16,
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: _onTapNextButton,
                   child: Icon(Icons.arrow_circle_right_outlined),
                 ),
                 const SizedBox(
@@ -95,11 +96,20 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 
+  void _onTapNextButton(){
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const MainBottomNavScreen(),
+      ),
+    );
+  }
+
   void _onTapSignUpButton() {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => SignUpScreen(),
+        builder: (context) => const SignUpScreen(),
       ),
     );
   }
@@ -108,7 +118,7 @@ class _SignInScreenState extends State<SignInScreen> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => EmailVerificationScreen(),
+        builder: (context) => const  EmailVerificationScreen(),
       ),
     );
   }
