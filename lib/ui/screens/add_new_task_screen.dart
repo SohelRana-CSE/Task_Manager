@@ -10,13 +10,13 @@ class AddNewTaskScreen extends StatefulWidget {
 }
 
 class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
-  TextEditingController _titleTEController = TextEditingController();
-  TextEditingController _descriptionTEController = TextEditingController();
+  final TextEditingController _titleTEController = TextEditingController();
+  final TextEditingController _descriptionTEController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: profileAppBar(),
+      appBar: profileAppBar(context),
       body: BackgroundWidget(
           child: SingleChildScrollView(
         child: Padding(
